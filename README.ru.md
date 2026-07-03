@@ -1,15 +1,9 @@
-![Header](header.png)
-
 <div align="center">
 
 # ws2812bTest
 
 **Универсальный набор тестов WS2812B для 8 микроконтроллеров**
 
-[![License](https://img.shields.io/badge/license-MIT-2C2C2C?style=for-the-badge&labelColor=1E1E1E)](LICENSE)
-[![PlatformIO](https://img.shields.io/badge/PlatformIO-build-2C2C2C?style=for-the-badge&logo=platformio&labelColor=1E1E1E)]()
-[![FastLED](https://img.shields.io/badge/FastLED-3.6-2C2C2C?style=for-the-badge&labelColor=1E1E1E)]()
-[![GitHub](https://img.shields.io/badge/github-pluttan/ws2812bTest-2C2C2C?style=for-the-badge&logo=github&labelColor=1E1E1E)](https://github.com/pluttan/ws2812bTest)
 
 </div>
 
@@ -24,23 +18,6 @@
 - ❖ **Вывод отладки в Serial** — каждый тест логирует результаты в монитор порта
 - ❖ **Настраиваемость** — количество светодиодов, пин данных, яркость, длительность теста через `include/config.h`
 
-## ■ Поддерживаемые МК
-
-<div align="center">
-
-| МК | Board | Default Pin | Platform |
-|-----|-------|-------------|----------|
-| ESP32 | esp32dev | GPIO 5 | espressif32 |
-| ESP32-C3 | esp32-c3-devkitm-1 | GPIO 8 | espressif32 |
-| ESP32-S2 | esp32-s2-saola-1 | GPIO 18 | espressif32 |
-| ESP8266 | nodemcuv2 | GPIO 5 (D1) | espressif8266 |
-| Arduino Nano | nanoatmega328 | Pin 6 | atmelavr |
-| Arduino Uno | uno | Pin 6 | atmelavr |
-| Arduino Mega | megaatmega2560 | Pin 6 | atmelavr |
-| STM32 BluePill | bluepill_f103c8 | PA7 | ststm32 |
-
-</div>
-
 ## ■ Стек
 
 <div align="center">
@@ -54,7 +31,17 @@
 
 </div>
 
-## ■ Запуск
+## ■ Как это работает
+
+```
+1. Запустите `make` для открытия интерактивного мастера Makefile.
+2. Выберите целевую плату, серийный порт, пин данных и количество светодиодов по запросу.
+3. PlatformIO собирает прошивку для выбранной платформы МК (espressif32, atmelavr, ststm32 и др.).
+4. FastLED последовательно запускает 14 цикличных тестовых эффектов на светодиодной ленте.
+5. Каждый тест логирует результаты в монитор порта для отладочной проверки.
+```
+
+## ■ Использование
 
 ```bash
 # Интерактивное меню (рекомендуется)
@@ -70,6 +57,23 @@ make run MCU=esp32 PORT=/dev/ttyUSB0
 make ports
 ```
 
-## ■ License
+## ■ Поддерживаемые МК
+
+<div align="center">
+
+| МК | Плата | Пин по умолчанию | Платформа |
+|-----|-------|-------------|----------|
+| ESP32 | esp32dev | GPIO 5 | espressif32 |
+| ESP32-C3 | esp32-c3-devkitm-1 | GPIO 8 | espressif32 |
+| ESP32-S2 | esp32-s2-saola-1 | GPIO 18 | espressif32 |
+| ESP8266 | nodemcuv2 | GPIO 5 (D1) | espressif8266 |
+| Arduino Nano | nanoatmega328 | Pin 6 | atmelavr |
+| Arduino Uno | uno | Pin 6 | atmelavr |
+| Arduino Mega | megaatmega2560 | Pin 6 | atmelavr |
+| STM32 BluePill | bluepill_f103c8 | PA7 | ststm32 |
+
+</div>
+
+## ■ Лицензия
 
 MIT © [pluttan](https://github.com/pluttan)
